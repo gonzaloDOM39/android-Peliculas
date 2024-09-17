@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -9,46 +10,100 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".LoginActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-14dp">
 
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="20sp"
-            android:text="@string/userName"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/estrella" />
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:fontFamily="@font/ptsansnarrow_regular"
+        android:text="@string/star_pelis"
+        android:textAlignment="center"
+        android:textSize="50sp" />
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp">
         <EditText
             android:id="@+id/textUserName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:hint="@string/hint_username"
             android:inputType="text"
-            android:textSize="15sp"
-            android:hint="@string/hint_username" />
-
-        <TextView
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:textSize="20sp"
-            android:text="@string/password" />
+            android:layout_marginBottom="20dp"/>
+
+
 
         <EditText
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:textSize="15sp"
-            android:hint="@string/hint_password" />
-
-        <Button
+            android:textSize="20sp" />
+    </LinearLayout>
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogIn"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="50dp"
-            android:text="@string/logIn" />
+            android:text="@string/logIn"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+          />
 
+        <TextView
+            android:id="@+id/sinCuenta"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:focusable="true"
+            android:fontFamily="@font/ptsansnarrow_bold"
+            android:text="@string/sinCuenta"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+        <ImageView
+            android:id="@+id/gitHub"
+            android:layout_marginTop="30dp"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            app:srcCompat="@drawable/github" />
+    <ImageView
+        android:id="@+id/instagram"
+        android:layout_marginTop="30dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/instagram" />
+</LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

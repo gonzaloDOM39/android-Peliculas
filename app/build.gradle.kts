@@ -35,11 +35,15 @@ android {
 }
 
 dependencies {
-
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
+    implementation(libs.glide)
+    annotationProcessor (libs.compiler)
+    implementation (libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation (libs.androidx.lifecycle.livedata.ktx.v260)
+    implementation (libs.androidx.lifecycle.viewmodel.ktx.v260)
+    implementation (libs.material.v1110)
+    implementation (libs.androidx.fragment)
+    implementation (libs.androidx.appcompat.v161)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
@@ -50,4 +54,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }

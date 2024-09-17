@@ -1,0 +1,21 @@
+<!-- res/menu/menu_main.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Barra de búsqueda -->
+
+    <item
+        android:id="@+id/action_home"
+        android:title="@string/item_inicio"
+        android:icon="@drawable/casa"
+       />
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/item_buscar"
+        android:icon="@drawable/buscar"
+         />
+
+    <item
+        android:id="@+id/action_user"
+        android:title="@string/item_biblioteca"
+        android:icon="@drawable/usuario"
+    />
+</menu>

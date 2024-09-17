@@ -1,14 +1,9 @@
-package com.example.login;
+package com.example.login.adapters;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.example.login.model.User;
 
@@ -23,7 +18,7 @@ private List<User> users;
     this.context= context;
         this.users = objects;
     }
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+   /* public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
         LayoutInflater layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView=layoutInflater.inflate(R.layout.content_main,parent, false);
         TextView txtIdUser= (TextView) rowView.findViewById(R.id.IDuser) ;
@@ -35,5 +30,5 @@ private List<User> users;
         txtLastName.setText(String.format("Apellido:%s",users.get(position).getLastName()));
       return rowView;
     }
-
+*/
 }

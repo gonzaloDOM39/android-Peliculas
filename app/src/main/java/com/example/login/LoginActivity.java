@@ -12,8 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.login.model.User;
 import com.example.login.utils.Apis;
 import com.example.login.utils.UserService;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Objects;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,35 +20,55 @@ import retrofit2.Response;
 
 public class LoginActivity  extends AppCompatActivity {
     UserService userService;
-    List<User> listUsers = new ArrayList<>(); // Puedes usar ArrayList<> en lugar de ArrayList<User>()
-    ListView listView;
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
-
+    private TextView sinCuenta;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_layout);  // Cambia esto a R.layout.user_layout
+        setContentView(R.layout.login_layout);
 
-        TextView userName = findViewById(R.id.userName);
         EditText txtUserName = findViewById(R.id.textUserName);
-        TextView password = findViewById(R.id.password);
         EditText txtPassword = findViewById(R.id.txtPassword);
         Button btnLogIn = findViewById(R.id.btnLogIn);
+        TextView sinCuenta = findViewById(R.id.sinCuenta); // Cambiado a TextView si es un enlace a otra actividad
 
+        // Configurar el clic del botón de inicio de sesión
         btnLogIn.setOnClickListener(v -> {
             Log.i("MAIN ACTIVITY ARIS", "entra al boton ");
+
+            // Obtener valores de los campos
+            String username = txtUserName.getText().toString().trim();
+            String password = txtPassword.getText().toString().trim();
+
+            // Validar campos
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Crear objeto de usuario
             User user = new User();
-            user.setUsername(txtUserName.getText().toString());
-            user.setPassword(txtPassword.getText().toString());
-            Log.i("MAIN ACTIVITY ARIS", "el usuario es:"+ user.getUsername());
+            user.setUsername(username);
+            user.setPassword(password);
+
+            Log.i("MAIN ACTIVITY ARIS", "el usuario es: " + user.getUsername());
             LogInUser(user);
+        });
+
+
+        sinCuenta.setOnClickListener(v -> {
+            Intent intent = new Intent(this, UserActivity.class);
+            startActivity(intent);
+
         });
     }
 
+
     public void LogInUser(User user) {
-        userService = Apis.getUserService();
+    userService = Apis.getUserService();
         Call<User> call = userService.validateLogin(user);
         call.enqueue(new Callback<User>() {
             @Override
@@ -72,5 +91,9 @@ public class LoginActivity  extends AppCompatActivity {
         });
     }
 
+
+      /*  Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish(); // Cierra la actividad actual*/
 
 }

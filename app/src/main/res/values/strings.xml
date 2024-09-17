@@ -15,5 +15,22 @@
     <string name="pass">******</string>
     <string name="hint_username">user name\n</string>
     <string name="hint_password">password\n</string>
+    <string name="star_pelis">Star Pelis</string>
+    <string name="sinCuenta">¿Aun no tenes una cuenta?</string>
+    <string name="crearCuenta">Crear Cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="example_gmail_com">example@gmail.com</string>
+    <string name="guardar">Guardar</string>
+    <string name="item_biblioteca">Biblioteca</string>
+    <string name="item_inicio">Inicio</string>
+    <string name="item_buscar">Buscar</string>
+    <string name="carousel_de_carteleras">carousel de carteleras</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="searchbar_hint">search_bar\n</string>
+    <string name="favorite">favoritos\n</string>
+    <string name="menuBarra">menu barra\n</string>
 
 </resources>
