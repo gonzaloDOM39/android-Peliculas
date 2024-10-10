@@ -1,6 +1,8 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.login.adapters.PeliculaAdapter;
 import com.example.login.model.Pelicula;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements PeliculaAdapter.OnPeliculaClickListener {
     private RecyclerView recyclerView;
     private PeliculaAdapter peliculaAdapter;
     private ArrayList<Pelicula> listaPeliculas;
-
+    private MaterialCardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         listaPeliculas = getPeliculas();
 
         // Configurar el Adapter
-        peliculaAdapter = new PeliculaAdapter(listaPeliculas);
+        peliculaAdapter = new PeliculaAdapter(listaPeliculas,HomeActivity.this);
         recyclerView.setAdapter(peliculaAdapter);
     }
 
@@ -56,4 +59,11 @@ public class HomeActivity extends AppCompatActivity {
  }
 
 
+    @Override
+    public void onPeliculaClick(Pelicula pelicula) {
+        Intent intent = new Intent(this, PeliculaDetailActivity.class);
+        intent.putExtra("pelicula",pelicula);
+        Log.i("com.prueba", pelicula.getTitulo());
+        startActivity(intent);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,22 +9,23 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.login.model.User;
 import com.example.login.utils.Apis;
 import com.example.login.utils.UserService;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity  extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     UserService userService;
-    private EditText editTextEmail;
-    private EditText editTextPassword;
-    private Button buttonLogin;
-    private TextView sinCuenta;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,8 @@ public class LoginActivity  extends AppCompatActivity {
 
 
     public void LogInUser(User user) {
-    userService = Apis.getUserService();
+
+        userService = Apis.getUserService();
         Call<User> call = userService.validateLogin(user);
         call.enqueue(new Callback<User>() {
             @Override
@@ -80,7 +83,24 @@ public class LoginActivity  extends AppCompatActivity {
                     startActivity(intent);
                     finish(); // Cierra la actividad actual
                 } else {
-                    Toast.makeText(LoginActivity.this, "Credenciales incorrectas", Toast.LENGTH_LONG).show();
+                    new MaterialAlertDialogBuilder(LoginActivity.this)
+                            .setTitle("Error Al ingresar")
+                            .setMessage("Las credenciales ingresadas son incorrectas. Por favor, inténtalo de nuevo.")
+                            .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+
+                                }
+                            })
+                            .setPositiveButton(getString(R.string.accept), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+
                 }
             }
 

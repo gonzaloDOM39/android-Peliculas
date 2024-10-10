@@ -32,5 +32,7 @@
     <string name="searchbar_hint">search_bar\n</string>
     <string name="favorite">favoritos\n</string>
     <string name="menuBarra">menu barra\n</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Aceptar</string>
 
 </resources>

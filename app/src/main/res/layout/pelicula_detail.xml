@@ -1,0 +1,141 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
+    tools:context=".PeliculaDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Primera Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="172dp" /> <!-- 40% de la pantalla -->
+
+        <!-- Segunda Guideline -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="270dp" /> <!-- 60% de la pantalla -->
+
+        <!-- Imagen de fondo de la película -->
+
+        <!-- Imagen pequeña de la película -->
+        <ImageView
+            android:id="@+id/background_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/small_movie_poster"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/background_image" />
+        <Button
+            android:id="@+id/trailer_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TRAILER"
+            app:layout_constraintTop_toBottomOf="@id/small_movie_poster"
+            app:layout_constraintStart_toEndOf="@id/guideline2"/>
+        <!-- Contenedor de la información de la película -->
+        <LinearLayout
+            android:id="@+id/movie_info_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/background_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline2">
+
+            <!-- Título de la película -->
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The Dark Knight"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+
+            <!-- Detalles de la película -->
+            <TextView
+                android:id="@+id/movie_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DIRECTED BY Christopher Nolan"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="4dp" />
+
+            <!-- Descripción de la película -->
+            <TextView
+                android:id="@+id/movie_synopsis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batman raises the stakes in his war on crime..."
+                android:textColor="@android:color/white"
+                android:layout_marginTop="8dp" />
+
+            <!-- Botón de trailer -->
+
+
+        </LinearLayout>
+
+        <!-- Sección de calificaciones debajo de todo -->
+        <LinearLayout
+            android:id="@+id/ratings_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/movie_info_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/ratings_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RATINGS"
+                android:textSize="16sp"
+                android:textColor="@android:color/white" />
+
+            <!-- Barra de calificación -->
+            <ProgressBar
+                android:id="@+id/movie_rating_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:max="100"
+                android:progress="75" />
+
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
